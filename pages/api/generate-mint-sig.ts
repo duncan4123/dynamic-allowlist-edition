@@ -32,8 +32,13 @@ const generateMintSignature = async (
     try {
       const signedPayload = await edition.signature.generateFromTokenId({
         tokenId: 0,
-        quantity: '1',
-        to: address
+        quantity: 1,
+        to: address,
+
+        royaltyRecipient: '0x069e85D4F1010DD961897dC8C095FBB5FF297434',
+        royaltyBps: 100,
+        primarySaleRecipient: '0x069e85D4F1010DD961897dC8C095FBB5FF297434',
+        price: 0.5
       })
 
       res.status(200).json({
